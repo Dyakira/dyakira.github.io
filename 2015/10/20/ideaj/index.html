@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=6.0.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=6.0.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.4" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="IntelliJ IDEA," />
+
+
+<meta name="description" content="从MyEclipse换到IntelliJ IDEA记录下基本配置..">
+<meta name="keywords" content="IntelliJ IDEA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IntelliJ IDEA配置">
+<meta property="og:url" content="http://yoursite.com/2015/10/20/ideaj/index.html">
+<meta property="og:site_name" content="dyakira&#39;s blog">
+<meta property="og:description" content="从MyEclipse换到IntelliJ IDEA记录下基本配置..">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/722402/201510/722402-20151019204051536-1439537616.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/722402/201510/722402-20151019211309614-551942798.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/722402/201510/722402-20151020105857161-989616398.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/722402/201510/722402-20151020110858880-1016029927.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/722402/201510/722402-20151020111551286-1579725318.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/722402/201510/722402-20151020111709770-881555912.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/722402/201510/722402-20151020140134083-1921021950.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/722402/201510/722402-20151020170858020-1227741615.png">
+<meta property="og:updated_time" content="2018-02-22T08:25:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IntelliJ IDEA配置">
+<meta name="twitter:description" content="从MyEclipse换到IntelliJ IDEA记录下基本配置..">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/722402/201510/722402-20151019204051536-1439537616.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/10/20/ideaj/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>IntelliJ IDEA配置 | dyakira's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">dyakira's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/20/ideaj/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dyakira">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/zhushou.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dyakira's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">IntelliJ IDEA配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-10-20T17:35:05+08:00">2015-10-20</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/10/20/ideaj/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2015/10/20/ideaj/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">从MyEclipse换到IntelliJ IDEA记录下基本配置..</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="安装与基本配置"><a href="#安装与基本配置" class="headerlink" title="安装与基本配置"></a>安装与基本配置</h1><h2 id="关于破解"><a href="#关于破解" class="headerlink" title="关于破解"></a>关于破解</h2><p>就像Minecraft作者回应玩家说的一样。</p>
+<blockquote>
+<p>Just pirate it. If you still like it when you can afford it in the future,buy it then.Also don’t forget to feel bad. </p>
+</blockquote>
+<p>在这里还是呼吁大家尽量买正版，付不起的人们也希望大家 <strong>don’t forget to feel bad.</strong></p>
+<p>这是一个在线生成注册码的网址：<a href="http://appcode.aliapp.com/idea.jsp" target="_blank" rel="noopener">http://appcode.aliapp.com/idea.jsp</a> 比较方便。<br>还有一种是下载java破解程序本地同样也能跑出注册码。</p>
+<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><ol>
+<li>如何显示行号：Settings-&gt;Editor-&gt;General-&gt;Appearance标签项，勾选Show line numbers</li>
+<li>如何设置字体：<br>UI部分字体：File-&gt;Settings-&gt;Appearance&amp;Bhavior-&gt;Appearance 中设置<br>编辑区字体: File-&gt;Settings-&gt;Editor-&gt;Colors&amp;Fonts-&gt;Font 中设置。<br><img src="http://images2015.cnblogs.com/blog/722402/201510/722402-20151019204051536-1439537616.png" alt="编辑区字体设置"></li>
+<li>禁用一些不常用的插件：File -&gt; Settings -&gt; Plugins -&gt;取消勾选相应的插件</li>
+<li>安装一些常用的插件：File -&gt; Settings -&gt; Plugins -&gt;搜索相应的插件<br>Key promoter：提示常用鼠标点击的操作对应的快捷键..新手福利<br>IdeaVim：vim爱好者福利<br>MyBatis：工程用到MyBatis可以考虑.（收费）<br>Jrebel：热部署（收费）</li>
+<li>设置注释作者名字：File-&gt;Settings-&gt;File and Code Templates-&gt;Include-&gt;File Header:修改${USER}为自定义名字。</li>
+<li>设置项目编码：File-&gt;Settings-&gt;Editor-&gt;File Encodings<br>(设置默认：File-&gt;Other Settings-&gt;Default Settings-Editor-&gt;File Encodings)</li>
+</ol>
+<h1 id="配置Maven"><a href="#配置Maven" class="headerlink" title="配置Maven"></a>配置Maven</h1><h2 id="安装Maven"><a href="#安装Maven" class="headerlink" title="安装Maven"></a>安装Maven</h2><p>去Maven官网下个安装吧..</p>
+<h2 id="全局配置（File–-gt-Settings）"><a href="#全局配置（File–-gt-Settings）" class="headerlink" title="全局配置（File–&gt;Settings）"></a>全局配置（File–&gt;Settings）</h2><p>如下图选择maven的安装路径，idea会关联安装目录中Local respository的设置。你也可以勾选旁边的Override重新设置本地仓库的位置<br><strong>注意User settings file的设置：</strong>默认是C盘下对应的目录位置。一般访问私服是需要验证信息都是在settings.xml中设置的。所以还是需要设置下的不然有些私服上的jar包无法下载到。<br><img src="http://images2015.cnblogs.com/blog/722402/201510/722402-20151019211309614-551942798.png" alt="">  </p>
+<h2 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h2><p>下面在右边的Maven Projects处点击加号选择项目对应的pom.xml文件。<br><img src="http://images2015.cnblogs.com/blog/722402/201510/722402-20151020105857161-989616398.png" alt=""><br><strong>注：</strong>个别时候可能右边找不到Maven Projects，这应该被隐藏了。点击左下角的 <img src="http://images2015.cnblogs.com/blog/722402/201510/722402-20151020110858880-1016029927.png" alt=""> 就好。</p>
+<h1 id="配置Tomcat"><a href="#配置Tomcat" class="headerlink" title="配置Tomcat"></a>配置Tomcat</h1><h2 id="安装Tomcat"><a href="#安装Tomcat" class="headerlink" title="安装Tomcat"></a>安装Tomcat</h2><p>同样自己装一个Tomcat..</p>
+<h2 id="全局配置（File–-gt-Settings）-1"><a href="#全局配置（File–-gt-Settings）-1" class="headerlink" title="全局配置（File–&gt;Settings）"></a>全局配置（File–&gt;Settings）</h2><p>如下图选择Tomcat的安装路径<br><img src="http://images2015.cnblogs.com/blog/722402/201510/722402-20151020111551286-1579725318.png" alt=""></p>
+<h2 id="项目配置（Run–-gt-Edit-Configurations）"><a href="#项目配置（Run–-gt-Edit-Configurations）" class="headerlink" title="项目配置（Run–&gt; Edit Configurations）"></a>项目配置（Run–&gt; Edit Configurations）</h2><p>关于项目配置有几点要说明：</p>
+<ol>
+<li>after Launch： 可以选择项目启动后打开的浏览器</li>
+<li>On Update Action :  </li>
+</ol>
+<ul>
+<li>On Update 可以设置当你在Run窗口点击Update按钮的时候（或ctrl+F10）对应的行为。</li>
+<li>Show dialog 勾选后会在你每次点击Update按钮的时候出现提示框。</li>
+</ul>
+<ol>
+<li>On frame Deactivation：设置窗口失去焦点后对应的操作</li>
+</ol>
+<ul>
+<li>Update resources:就是除了class之外的资源会被Update</li>
+<li>Update classes and resources：所有资源会被update,更改的类会被重新编译。需要注意的是类是否真的被更新取决于你的服务器设置。<br><strong>注：</strong>此处选项可能会是Hot Swap Classes,redeploy,restart server，这是因为deployment中war设置不是exploded.下面项目部署会提到</li>
+</ul>
+<ol>
+<li><strong>建议设置</strong>:</li>
+</ol>
+<ul>
+<li>On frame deactivation-&gt;Update Resources</li>
+<li>On update-&gt;Redeploy或者Restart Server<br>这样可以让静态页面在窗口失去焦点快速更新，而类的话可以通过点击Update按钮的时候来更新。<br>需要实现热部署的话还是建议使用JRebel等插件来实现..<br><img src="http://images2015.cnblogs.com/blog/722402/201510/722402-20151020111709770-881555912.png" alt="">  </li>
+</ul>
+<h2 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h2><ol>
+<li>点击旁边的Deployment选项卡</li>
+<li><p>添加你的项目选择Artifact类型<br> <strong>注：</strong>之前并不懂Artifact是啥意思就wiki上找了下，感觉就是部署的时候生成的一种文件格式</p>
+<blockquote>
+<p> Artifact：one of many kinds of tangible byproducts produced during the development of software</p>
+</blockquote>
+<p> Artifact有两种类型</p>
+<ul>
+<li>普通的 .war (Web application archive) ：一种压缩格式，当部署的时候服务器才会为应用解压所需的资源</li>
+<li>.war exploded 也就是没有被压缩过的格式。可以随时被改动和部署。</li>
+</ul>
+</li>
+</ol>
+<p>在这里为了调试方便我还是会选择<strong>.war exploded</strong>格式的..<br><img src="http://images2015.cnblogs.com/blog/722402/201510/722402-20151020140134083-1921021950.png" alt=""></p>
+<h2 id="添加Tomcat"><a href="#添加Tomcat" class="headerlink" title="添加Tomcat"></a>添加Tomcat</h2><p>上一步只是配置默认..只是配置..只是配置..（因为很重要所以要说三遍）<br><strong>最后别忘了点击左上的’+’号，添加一个Tomcat….</strong><br>之前就是光配置没添加导致找不到可用的tomcat..调了好久..（；￣д￣）<br><img src="http://images2015.cnblogs.com/blog/722402/201510/722402-20151020170858020-1227741615.png" alt=""></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="http://www.3dmgame.com/news/201201/39499.html" target="_blank" rel="noopener">http://www.3dmgame.com/news/201201/39499.html</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Artifact_(software_development)" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Artifact_(software_development)</a></li>
+<li><a href="http://stackoverflow.com/questions/19596779/intellij-and-tomcat-changed-files-are-not-automatically-recognized-by-tomcat/19609115#19609115" target="_blank" rel="noopener">http://stackoverflow.com/questions/19596779/intellij-and-tomcat-changed-files-are-not-automatically-recognized-by-tomcat/19609115#19609115</a></li>
+<li><a href="http://stackoverflow.com/questions/15485269/deploying-artifacts-for-java-ee-projects-in-intellij-what-is-an-exploded-artifa" target="_blank" rel="noopener">http://stackoverflow.com/questions/15485269/deploying-artifacts-for-java-ee-projects-in-intellij-what-is-an-exploded-artifa</a></li>
+<li><a href="http://stackoverflow.com/questions/3906881/advantages-disadvantages-to-exploded-wars" target="_blank" rel="noopener">http://stackoverflow.com/questions/3906881/advantages-disadvantages-to-exploded-wars</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IntelliJ-IDEA/" rel="tag"># IntelliJ IDEA</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/22/javascript/" rel="next" title="《JavaScriptDOM编程艺术》">
+                <i class="fa fa-chevron-left"></i> 《JavaScriptDOM编程艺术》
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/zhushou.jpg"
+                alt="dyakira" />
+            
+              <p class="site-author-name" itemprop="name">dyakira</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Dyakira" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/dyakira" target="_blank" title="微博"><i class="fa fa-fw fa-globe"></i>微博</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装与基本配置"><span class="nav-number">1.</span> <span class="nav-text">安装与基本配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于破解"><span class="nav-number">1.1.</span> <span class="nav-text">关于破解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本配置"><span class="nav-number">1.2.</span> <span class="nav-text">基本配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置Maven"><span class="nav-number">2.</span> <span class="nav-text">配置Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Maven"><span class="nav-number">2.1.</span> <span class="nav-text">安装Maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局配置（File–-gt-Settings）"><span class="nav-number">2.2.</span> <span class="nav-text">全局配置（File–&gt;Settings）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目配置"><span class="nav-number">2.3.</span> <span class="nav-text">项目配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置Tomcat"><span class="nav-number">3.</span> <span class="nav-text">配置Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Tomcat"><span class="nav-number">3.1.</span> <span class="nav-text">安装Tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局配置（File–-gt-Settings）-1"><span class="nav-number">3.2.</span> <span class="nav-text">全局配置（File–&gt;Settings）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目配置（Run–-gt-Edit-Configurations）"><span class="nav-number">3.3.</span> <span class="nav-text">项目配置（Run–&gt; Edit Configurations）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目部署"><span class="nav-number">3.4.</span> <span class="nav-text">项目部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加Tomcat"><span class="nav-number">3.5.</span> <span class="nav-text">添加Tomcat</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dyakira</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.4"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
