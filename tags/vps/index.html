@@ -105,7 +105,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="dyakira&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/vps/index.html">
 <meta property="og:site_name" content="dyakira&#39;s blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dyakira&#39;s blog">
@@ -115,7 +115,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/vps/"/>
 
 
 
@@ -124,7 +124,7 @@
     sidebar: "",
   };
 </script>
-  <title>dyakira's blog</title>
+  <title>Tag: vps | dyakira's blog</title>
   
 
 
@@ -171,8 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -255,180 +254,53 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-    
+
+  
+  
+  
+  <div class="post-block tag">
+
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>vps<small>Tag</small>
+        </h1>
+      </div>
+
       
-
-  
-
-  
-  
-  
-
-  
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/20/VPS/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="dyakira">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/zhushou.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dyakira's blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/20/VPS/" itemprop="url">VPS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2020/04/20/VPS/" itemprop="url">
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span itemprop="name">VPS</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-20T00:57:31+08:00">2020-04-20</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+            </a>
         
-          
-            <h2 id="1-了解网络"><a href="#1-了解网络" class="headerlink" title="1.了解网络"></a>1.了解网络</h2><h3 id="品级划分："><a href="#品级划分：" class="headerlink" title="品级划分："></a>品级划分：</h3><p>根据进出口路由路径分为</p>
-<ol>
-<li>CN1 163(电信) / 169(联通) 骨干网</li>
-<li>CN2 ChinaNet Next Carrying Network<ul>
-<li>CN2 GT （Global Transfer 又称半程 CN2 ）</li>
-<li>CN2 GIA（Global Internet Access 又称纯 CN2/全程 CN2）<ul>
-<li>单网/双网/三网=电信/电信,联通/电信,联通,移动</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<p>速度: <strong>CN2 GIA &gt; CN2 GT &gt; CN1</strong> 同样速度越快价格越贵<br>自测 延迟的话 GIA一般200ms以内 CN2 300ms以内 CN1说不准<br>各个运营商走的路由可以参考下面路由浅谈里介绍 本地联通 按安文中描述验证了下基本属实<br>提供了不同类型的测试IP感兴趣的可以<a href="https://tools.ipip.net/traceroute.php" target="_blank" rel="noopener">traceroute</a>验证下</p>
-<ul>
-<li>CN2 GIA：65.49.131.102</li>
-<li>CN2 GT：23.252.103.101</li>
-<li>CN1：23.252.99.102</li>
-</ul>
-<h3 id="判断线路类型"><a href="#判断线路类型" class="headerlink" title="判断线路类型"></a>判断线路类型</h3><p>看回程路由和去程路由里的节点类型，看路由里走的202.97普通节点还是59.43高速节点。</p>
-<ul>
-<li>去程 <a href="https://tools.ipip.net/traceroute.php" target="_blank" rel="noopener">traceroute</a></li>
-<li>回程 VPS上 <code>mtr -rw ip</code></li>
-</ul>
-<h2 id="2-厂商选择"><a href="#2-厂商选择" class="headerlink" title="2.厂商选择"></a>2.厂商选择</h2><ol>
-<li>看支持网络</li>
-<li>可接受价格</li>
-<li>搜相关测评</li>
-<li>找测试ip 本地ping测试 </li>
-</ol>
-<h2 id="3-工具"><a href="#3-工具" class="headerlink" title="3. 工具"></a>3. 工具</h2><ul>
-<li>VPS-speedtest: <code>docker run -d -p 6688:80 ilemonrain/html5-speedtest:alpine</code></li>
-<li><a href="https://github.com/wulabing/V2Ray_ws-tls_bash_onekey" target="_blank" rel="noopener">v兔ray部署脚本</a></li>
-<li>v兔ray客户端<ul>
-<li>mac: clashX (千万别用v兔rayU/X各种坑)<ul>
-<li><a href="https://www.v2rayssr.com/clashxx.html" target="_blank" rel="noopener">配置参考</a></li>
-</ul>
-</li>
-<li>android: Surfboard/v兔rayNG</li>
-<li>ios:Shadowrocket/Quantumult</li>
-</ul>
-</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/64467370" target="_blank" rel="noopener">国内主流网络运营商国际连接线路简谈</a></li>
-<li><a href="https://www.youtube.com/channel/UCA0gaB71yl2p_g5WlO5zljw" target="_blank" rel="noopener">洋葱-youtube测评</a></li>
-<li><a href="https://www.vpsgo.com/about-163-cn2-gt-gia.html" target="_blank" rel="noopener">163/CN2CT/CN2GIA线路介绍</a></li>
-<li><a href="https://www.bandwagonhost.net/test-ip" target="_blank" rel="noopener">BWG测试IP</a></li>
-</ul>
+      </h2>
 
-          
-        
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-04-20T00:57:31+08:00"
+              content="2020-04-20" >
+          04-20
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
       
     </div>
 
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
   
   
-  </article>
-
-
-    
-  </section>
 
   
 
