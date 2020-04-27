@@ -272,6 +272,181 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/27/Git凭证存储/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dyakira">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/zhushou.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dyakira's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/27/Git凭证存储/" itemprop="url">Git凭证存储</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-27T17:25:38+08:00">2020-04-27</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>下午正在把分支merge到master在测试环境测试代码,改了个bug忘了分支是master直接push了,按理说代码在自己是developer的情况下应该会被rejected, 但是奇怪的事情发生了, 代码成功提交直接提交到了master</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li>凭证是如何存储的？</li>
+<li>如何查看当前存储方式以及对应site凭证？</li>
+<li>如何移除指定凭证？</li>
+</ol>
+<h3 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h3><ol>
+<li>默认所有都不缓存。 每一次连接都会询问你的用户名和密码。</li>
+<li>“cache” 模式会将凭证存放在内存中一段时间。 密码永远不会被存储在磁盘中，并且在15分钟后从内存中清除。</li>
+<li>“store” 模式会将凭证用明文的形式存放在磁盘中，并且永不过期。 这意味着除非你修改了你在 Git 服务器上的密码，否则你永远不需要再次输入你的凭证信息。 这种方式的缺点是你的密码是用明文的方式存放在你的 home 目录下。</li>
+<li>如果你使用的是 Mac，Git 还有一种 “osxkeychain” 模式，它会将凭证缓存到你系统用户的钥匙串中。 这种方式将凭证存放在磁盘中，并且永不过期，但是是被加密的，这种加密方式与存放 HTTPS 凭证以及 Safari 的自动填写是相同的。</li>
+<li>如果你使用的是 Windows，你可以安装一个叫做 “Git Credential Manager for Windows” 的辅助工具。 这和上面说的 “osxkeychain” 十分类似，但是是使用 Windows Credential Store 来控制敏感信息。</li>
+</ol>
+<h3 id="如何查看"><a href="#如何查看" class="headerlink" title="如何查看"></a>如何查看</h3><ul>
+<li><p>查看存储方式</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config  -l | grep credential.helper</span><br></pre></td></tr></table></figure>
+<p>  <img src="http://ww1.sinaimg.cn/large/694e463bly1ge8g1r8148j20dn02jaa9.jpg" alt="15879762558006.jpg"></p>
+<p>  -l表示列出所有, 可以看出我本地的存储方式是<code>osxkeychain</code>和<code>store</code></p>
+</li>
+<li><p>查看对应site凭证</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git credential-osxkeychain get</span><br><span class="line">    host=gitlab.com</span><br><span class="line">    protocol=http</span><br><span class="line">    &gt; [Press Return]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>上述命令当存储方式不同是会有不同 例如 git-credential-cache、git-credential-store<br>get 是请求输入一对用户名和密码。<br>store 是请求保存一个凭证到辅助工具的内存。<br>erase 会将给定的证书从辅助工具内存中清除。</p>
+</blockquote>
+<h3 id="如何移除"><a href="#如何移除" class="headerlink" title="如何移除"></a>如何移除</h3><ol>
+<li><p>通过Keychain Access</p>
+<ol>
+<li>在 Finder 中，搜索 Keychain Access 应用程序。</li>
+<li>在 Keychain Access 中，搜索对应域名</li>
+<li>相应地编辑或删除该条目。</li>
+</ol>
+</li>
+<li><p>通过命令行直接擦除密钥链条目</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git credential-osxkeychain erase</span><br><span class="line">host=gitlab.com</span><br><span class="line">protocol=http</span><br><span class="line">&gt; [Press Return]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果成功，则不会打印出任何内容。 要测试其是否有效可以尝试并克隆gitlab仓库,如果提示输入密码，则该密钥链条目已删除。</p>
+<h2 id="测试机避免多次输入场景"><a href="#测试机避免多次输入场景" class="headerlink" title="测试机避免多次输入场景"></a>测试机避免多次输入场景</h2><ul>
+<li>多人使用的情况下: 可以设置过期缓存</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config credential.helper &apos;cache --timeout=300&apos;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>自己独占机器的情况下: 可以使用store存储 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config credential.helper &apos;store --file ~/git.store&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过查看凭证存储方式确定了本地存储方式是<code>osxkeychain</code>, 使用<code>git credential-osxkeychain get</code> 发现之前登录过一次的scm系统的git账号被git保存作为gitlab的默认账号, 导致使用的scm的账号权限提交成功, 使用<code>git credential-osxkeychain erase</code> 移除后, 再次测试权限恢复正常</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%87%AD%E8%AF%81%E5%AD%98%E5%82%A8" target="_blank" rel="noopener">Git-工具-凭证存储</a></li>
+<li><a href="https://help.github.com/cn/github/using-git/updating-credentials-from-the-osx-keychain" target="_blank" rel="noopener">更新 OSX 密钥链中的凭据</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/20/VPS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -475,7 +650,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -492,7 +667,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
